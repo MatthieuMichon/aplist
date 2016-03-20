@@ -21,6 +21,9 @@ setup(
     author_email='matthieu.michon@gmail.com',
     license='GPLv3',
     packages=['aplist'],
+    install_requires=[
+          'requests',
+    ],
     test_suite='tests',
     zip_safe=False
 )
