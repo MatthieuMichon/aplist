@@ -7,7 +7,7 @@ https://github.com/MatthieuMichon/aplist
 from setuptools import setup
 
 setup(
-    name='sample',
+    name='aplist',
     version='0.1.dev1',
     description='Airport List Query module',
     classifiers=[

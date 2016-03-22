@@ -9,9 +9,6 @@ import operator
 class Processor(object):
     """Processor class."""
 
-    fields = ['uid', 'name', 'city', 'country', 'iata', 'icao', 'latitude',
-              'longitude', 'altitude', 'tzoffset', 'dst', 'tzname']
-
     def __init__(self):
         """Constructor."""
         self.base_dataset = []
