@@ -8,7 +8,7 @@ from setuptools import setup
 
 setup(
     name='aplist',
-    version='0.1.dev1',
+    version='0.1.dev3',
     description='Airport List Query module',
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -21,6 +21,7 @@ setup(
     author_email='matthieu.michon@gmail.com',
     license='GPLv3',
     packages=['aplist'],
+    package_dir={'aplist': 'aplist'},
     install_requires=[
           'requests',
     ],
