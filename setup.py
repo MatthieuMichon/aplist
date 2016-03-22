@@ -1,4 +1,4 @@
-"""Airport List Query setup paackage.
+"""Airport List Query setup package.
 
 See:
 https://github.com/MatthieuMichon/aplist
