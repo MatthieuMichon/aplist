@@ -13,6 +13,13 @@ This module being registered in PyPI, it can be installed using PIP::
 
 	pip install aplist
 
+You may want to avoid bloating your system Python with packages using ``virtualenv`` which works in way like a ``chroot`` but limited to PIP packages::
+
+	virtualenv .
+        source bin/activate
+	(do your things...)
+	deactivate
+
 *****
 Usage
 *****
