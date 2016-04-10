@@ -4,22 +4,26 @@ Curses client module.
 """
 
 
+# import aplist
 import urwid
 
+status_footer = (u'Showing results 0 ~ 0 out of 0')
+table_body = urwid.Filler(urwid.Divider(), 'top')
+table_frame = urwid.Frame(urwid.AttrWrap(table_body, 'body'),
+                          footer=status_footer)
+table_filler = urwid.Filler(table_frame)
 
-def test_exit_key(key):
-    """Quit program if exit key was pressed.
+header_text = (u'Airport List Query - Console Application')
+footer_text = (u' F1: Reset; F2: Filter; F3: Sort; F4: Export; '
+               'Esc: Cancel; Q:quit')
 
-    Arguments:
-        key (input): Keyboard or mouse input.
-    """
-    if key in ['q', 'Q']:
-        raise urwid.ExitMainLoop()
-
-
+header = urwid.Text(header_text, align='center')
 body = urwid.Filler(urwid.Divider(), 'top')
-footer = urwid.Text(u'footer')
-frame = urwid.Frame(urwid.AttrWrap(body, 'body'), footer=footer)
+footer = urwid.Text(footer_text)
+# frame = urwid.Frame(urwid.AttrWrap(table_body, 'body'),
+#                     header=header, footer=footer)
+frame = urwid.Frame(table_filler,
+                    header=header, footer=footer)
 
 loop = urwid.MainLoop(frame)
 loop.run()
@@ -27,16 +31,3 @@ loop.run()
 
 # if __name__ == '__main__':
 #     main()
-
-"""
-
-q: Quit
-?: Help
-F1: Open 'Search Dialog Box'
-F2: Open 'Sort Dialog Box'
-F3: Reverse Sort Order
-F4: Change paginate options
-F5: Clear search request
-
-
-"""
