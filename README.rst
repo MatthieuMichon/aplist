@@ -15,8 +15,9 @@ This module being registered in PyPI, it can be installed using PIP::
 
 You may want to avoid bloating your system Python with packages using ``virtualenv`` which works in way like a ``chroot`` but limited to PIP packages::
 
-	virtualenv .
-        source bin/activate
+	cd ..
+	virtualenv -p python3 aplist
+        source aplist/bin/activate
 	(do your things...)
 	deactivate
 
