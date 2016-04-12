@@ -1,31 +1,33 @@
 """Airport List Query package.
 
-Curses client module.
+Curses Console client module.
 """
 
-
-# import aplist
+import aplist
 import urwid
 
-status_footer = (u'Showing results 0 ~ 0 out of 0')
-table_body = urwid.Filler(urwid.Divider(), 'top')
-table_frame = urwid.Frame(urwid.AttrWrap(table_body, 'body'),
-                          footer=status_footer)
-table_filler = urwid.Filler(table_frame)
 
-header_text = (u'Airport List Query - Console Application')
-footer_text = (u' F1: Reset; F2: Filter; F3: Sort; F4: Export; '
-               'Esc: Cancel; Q:quit')
+class Query(object):
 
-header = urwid.Text(header_text, align='center')
-body = urwid.Filler(urwid.Divider(), 'top')
-footer = urwid.Text(footer_text)
-# frame = urwid.Frame(urwid.AttrWrap(table_body, 'body'),
-#                     header=header, footer=footer)
-frame = urwid.Frame(table_filler,
-                    header=header, footer=footer)
+    def __init__(self):
+        apl = aplist.AirportList()
+        self.retval = apl.query(query={})
 
-loop = urwid.MainLoop(frame)
+
+qy = Query()
+al = urwid.ListBox([qy.retval])
+
+title = urwid.Text(u'Airport List Query - Console Application',
+                   align='center')
+status = urwid.Text(u'F1: Filter - F2: Sort')
+text = (u'bla bla bla')
+
+inner_frame = urwid.Frame(
+    urwid.Filler(al), header=title, footer=status)
+
+outer_frame = urwid.Frame(inner_frame, header=title, footer=status)
+
+loop = urwid.MainLoop(outer_frame)
 loop.run()
 
 

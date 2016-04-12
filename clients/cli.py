@@ -4,8 +4,8 @@ Command Line Interface client module.
 """
 
 
-import argparse
 import aplist
+import argparse
 
 
 def parse():
