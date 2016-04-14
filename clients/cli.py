@@ -46,6 +46,12 @@ def main():
     args = parse()
     if args.search:
         query['search'] = decode(args.search)
+    if args.sort:
+        query['sort'] = decode(args.sort)
+    if args.offset:
+        query['page']['offset'] = decode(args.offset)
+    if args.limit:
+        query['page']['limit'] = decode(args.limit)
 
     apl = aplist.AirportList()
     retval = apl.query(query=query)
